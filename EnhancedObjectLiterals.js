@@ -1,20 +1,16 @@
 //Shorthand for Initializing Properties:
+//Shorthand for writing Methods:
 function getLaptop(make, model, year) {
     return { 
         make, // make: make
         model, // model: model
         year, // year: year
-    }; 
-}
-
-//Shorthand for writing Methods:
-const getLaptop = (make, model, year) => {
-    return {
         sayModel() { //sayModel : function() {
             return model;
         }
-    };
-};
+    }; 
+}
+
 getLaptop("Apple", "MacBook", "2015").sayModel();
 
 //Computed Properties and Object Literals:
