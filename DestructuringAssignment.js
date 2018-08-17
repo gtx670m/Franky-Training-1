@@ -1,3 +1,4 @@
+//Object Destructuring
 const person = { first: 'Foo', last: 'Bar' };
 const {first, last} = person;
 // <=> const first = person.first
@@ -15,7 +16,7 @@ const foo = () => {
 let {x: x, y: y, z: z} = foo(); // Cách khai báo 1
 let {x, y, z} = foo(); // Cách khai báo 2
 
-// Array
+//Array Destructuring
 
 let characters = ['alo', 1, { name: 'Ti', age: 23 }];
 let [d, e, f] = characters;
@@ -23,12 +24,15 @@ let [d, e, f] = characters;
 // <=> let e = characters[1];
 // <=> let f = characters[2];
 
+
+//String
 let message = 'Hello';
 let [a, b] = message;
 let [x, y, ...z] = message;
 console.log(a, b); // H e
 console.log(x, y, z); // H e ['l', 'l', 'o']
 
+//Default Parameters
 const foo = () => { 
     return { x: 1, y: 2, z: 3 }; 
 };

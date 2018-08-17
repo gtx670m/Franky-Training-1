@@ -1,3 +1,4 @@
+//String template
 console.log(`haha
 gõ
 \$nhiều\$ 
@@ -6,6 +7,7 @@ dòng
 ok`
 );
 
+// HTML template
 var cat = {
     name: 'Mun',
     job: 'Hái cau',
@@ -29,6 +31,7 @@ var markup = `
     </div>
 `;
 
+// Tagged template
 var cat = 'Mèo meo';
 var action = 'loanh quanh';
 helperFunc`${cat} đi ${action} trong sân.`;
