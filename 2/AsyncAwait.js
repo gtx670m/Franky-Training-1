@@ -1,8 +1,8 @@
 function wait(ms) {
-    return new Promise(r => setTimeout(r, ms))  
- }
- 
- async function main() {
+    return new Promise(r => setTimeout(r, ms))
+}
+
+async function main() {
     console.log('sắp rồi...')
     await wait(2007)
     console.log('chờ tí...')
@@ -10,6 +10,6 @@ function wait(ms) {
     console.log('thêm chút nữa thôi...')
     await wait(2016)
     console.log('xong rồi đấy!')
- }
+}
 
- main();
+main();
