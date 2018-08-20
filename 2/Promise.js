@@ -1,28 +1,43 @@
 //Basic
-const ex = (a) => {
+const add = (a, b) => {
     return new Promise((resolve, reject) => {
-        if (a) resolve(a);
-        else reject('Error!');
+        setTimeout(() => {
+            resolve(a + b);
+        }, 3000);
     });
 };
-ex(true)
-.then(data => console.log(data))
-.catch(err => console.log(err));
+const subtract = (a, b) => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(a - b);
+        }, 2000);
+    });
+};
 
-
+add(4, 5).then(result => console.log(result));
+subtract(10, 5).then(result => console.log(result));
 
 //Noi nhieu Promise
-//(5 + 6) * 7 / 8
+//((4 + 5) * 6 / 7) - 2 + 3 - 5 + 8 - 4 + 6
 const add = (a, b) => {
     return new Promise((resolve, reject) => resolve(a + b));
 };
-const multiplication = (a, b) => {
+const multiply = (a, b) => {
     return new Promise((resolve, reject) => resolve(a * b));
 };
-const division = (a, b) => {
+const divide = (a, b) => {
     return new Promise((resolve, reject) => resolve(a / b));
 };
-add(5, 6).then(resultAdd => multiplication(resultAdd, 7)
-    .then(resultMul => division(resultMul, 8)
-        .then(resultDiv => console.log(resultDiv)))
-);
+const subtract = (a, b) => {
+    return new Promise((resolve, reject) => resolve(a - b));
+}
+add(4, 5).then(resultAdd => multiply(resultAdd, 6)
+.then(resultMul => divide(resultMul, 7)
+.then(resultDiv => subtract(resultDiv, 2)
+.then(resultSub => add(resultSub, 3)
+.then(resultAdd => subtract(resultAdd, 5)
+.then(resultSub => add(resultSub, 8)
+.then(resultAdd => subtract(resultAdd, 4)
+.then(resultSub => add(resultSub, 6)
+.then(resultAdd => console.log(resultAdd))
+))))))));
