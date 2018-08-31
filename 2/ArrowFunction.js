@@ -28,27 +28,50 @@ test(4, 5, 6);
 
 //Không phù hợp làm method cho object vì không định nghĩa
 //giá trị "this" của riêng nó
-const test = function () {
-    this.temp = 'Global';
-    return {
-        temp: 'Local',
-        arrow: () => console.log(`arrow function: ${this.temp}`),
-        // this ở đây là this của function test
-        regular: function () {
-            // this.temp = 'Private';
-            console.log(`regular function: ${this.temp}`);
-            // this ở đây là object trả về
-        }
+var obj = {
+    id: 42,
+    counter() {
+        self = this;
+        setTimeout(function () {
+            console.log(self.id); // 42
+            console.log(this.id); // undefined
+        }/*.bind(this)*/, 1000);
     }
 };
 
-test().arrow(); // Global
-// => this ở arrow function tham chiếu đến cha gần nhất của nó
-//theo medium: arrow function sử dụng this từ đoạn mã chứa nó
-test().regular(); // Local
-// => this ở function thường tham chiếu đến object chứa nó
-//theo medium function thường xác định this tùy theo ngữ cảnh mà nó được gọi
+var obj = {
+    id: 100,
+    counter: function counter() {
+        setTimeout(() => {
+            console.log(this.id);
+        }, 500);
+    },
+};
 
+obj.counter();
+
+this.id = 200;
+// const test = () => {
+function test() {
+    console.log(this);
+    this.id = 100;
+    return obj = {
+        id: 200,
+        show: () => {
+            return {
+                show_child: () => { 
+                    console.log(this.id);
+                }
+            }
+        },
+        show2() {
+            console.log(this.id);
+        },
+    };
+}
+
+test().show().show_child();
+// test().show2();
 
 //Không có thuộc tính prototype
 let Foo = () => { };
@@ -67,5 +90,5 @@ let myFunc2 = () => { }
 //Không dùng cho hàm callback có ngữ cảnh động
 var button = document.getElementById('press');
 button.addEventListener('click', () => {
-  this.classList.toggle('on');
+    this.classList.toggle('on');
 });

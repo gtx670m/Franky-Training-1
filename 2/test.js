@@ -1,13 +1,14 @@
-let temp = 40;
-this.temp = 20;
-const obj = {
-    temp: 30,
-    test: function () {
-        this.temp = 10;
-        console.log(abc=this);
+this.id = 200;
+this.age = 23;
+console.log(this);
+var obj = {
+    id: 100,
+    // counter: function counter() {
+    counter: () => {
+        setTimeout(() => {
+            console.log(this.id);
+        }, 500);
     },
-    test2: () => { console.log(abc = this); }
-}
+};
 
-obj.test();
-// obj.test2();
+obj.counter();
