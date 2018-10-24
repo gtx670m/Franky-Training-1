@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "test1": "babel-node 2/export.js",
-    "test2": "babel-node 2/import.js"
+    "test": "babel-node present/index.js"
   },
   "keywords": [
     "webpack",
