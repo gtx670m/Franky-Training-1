@@ -70,17 +70,3 @@ main();
 main1();
 main2();
 
-// Missing async
-async function main() {
-    await wait(1000)
-    let arr = [100, 300, 500].map(val => wait(val))
-    arr.forEach(/*async*/ func => await func)
-    // syntax error
-}
-
-// Missing await
-async function main() {
-    let t = /*await*/ now();
-    console.log(t)
-    // ??? `t` is a `Promise` instance
-}
