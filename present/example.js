@@ -1,5 +1,5 @@
-console.log('1');
+console.log('This is the first line');
 setTimeout(()=>{
-    console.log('2')
+    console.log('This is the second line')
 },1000);
-console.log('3');
+console.log('This is the last line');
